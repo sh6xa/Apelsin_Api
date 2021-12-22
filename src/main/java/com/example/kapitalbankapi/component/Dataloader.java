@@ -39,9 +39,14 @@ public class Dataloader implements CommandLineRunner {
 
         if (initMode.equals("always")){
             Customer customer = customerRepository.save(new Customer("Shaxzod", "Uzbekistan", "navoiy14", "977777777"));
-            Customer customer2 = customerRepository.save(new Customer("Baxrom", "Uzbekistan", "navoiy14", "977777776"));
+            Customer customer2 = customerRepository.save(new Customer("Baxrom1", "Uzbekistan", "navoiy14", "977777776"));
+            Customer customer3 = customerRepository.save(new Customer("Baxrom2", "china", "navoiy14", "977777776"));
+            Customer customer4 = customerRepository.save(new Customer("Baxrom3", "kazak", "navoiy14", "977777776"));
             Order order = orderRepository.save(new Order(new Date(),customer));
             Order order2 = orderRepository.save(new Order(new Date(),customer2));
+            Order order3 = orderRepository.save(new Order(new Date(),customer3));
+            Order order4 = orderRepository.save(new Order(new Date(),customer3));
+            Order order5 = orderRepository.save(new Order(new Date(),customer2));
             Invoice invoice = invoiceRepository.save(new Invoice(order, 15, new Date(), new Date()));
 
             Invoice invoice2 = invoiceRepository.save(new Invoice(order2, 15, new Date(), new Date()));

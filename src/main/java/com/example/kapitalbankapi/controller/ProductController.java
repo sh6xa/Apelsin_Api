@@ -24,14 +24,14 @@ public class ProductController {
     }
 
     //Get all products which sold more than 10quantity
-    @GetMapping
+    @GetMapping("/high_demand_products")
     public HttpEntity<?> getProducts(){
         ApiResponse apiResponse = productService.getProducts();
         return ResponseEntity.ok(apiResponse);
     }
 
     //Get products name which sold more than 8quantity in one time by customer
-    @GetMapping("/getAllWhereQuantityMax")
+    @GetMapping("/bulk_products")
     public HttpEntity<?> getAllByQuantity(){
         ApiResponse apiResponse = productService.getAllByQuantity();
         return ResponseEntity.ok(apiResponse);
@@ -44,6 +44,19 @@ public class ProductController {
         return ResponseEntity.ok(apiResponse);
     }
 
+    //get all product list
+    @GetMapping("/list")
+    public HttpEntity<?>getAllProduct(){
+        ApiResponse apiResponse = productService.getAllProduct();
+        return ResponseEntity.ok(apiResponse);
+    }
+
+    //get product details by product id
+    @GetMapping("/product_id/{id}")
+    public HttpEntity getDetailsByProduct(@PathVariable Integer id){
+        ApiResponse apiResponse = productService.getDetailsByProductId(id);
+        return ResponseEntity.ok(apiResponse);
+    }
 
 
 }

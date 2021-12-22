@@ -15,9 +15,14 @@ public class InvoiceController {
     @Autowired
     InvoiceService invoiceService;
 
-    @GetMapping
-    public HttpEntity<?>getInvoiceIssued(){
+    @GetMapping("/expired_invoices")
+    public HttpEntity<?> getInvoiceIssued(){
         ApiResponse apiResponse =invoiceService.getInvoiceIssued();
         return  ResponseEntity.ok(apiResponse);
+    }
+    @GetMapping("/wrong_date_invoices")
+    public HttpEntity<?> getWrongDateInvoices(){
+        ApiResponse apiResponse = invoiceService.getWrongDateInvoices();
+        return ResponseEntity.ok(apiResponse);
     }
 }

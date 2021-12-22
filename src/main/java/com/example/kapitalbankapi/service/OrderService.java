@@ -6,8 +6,10 @@ import com.example.kapitalbankapi.payload.ApiResponse;
 import com.example.kapitalbankapi.repository.CustomerRepository;
 import com.example.kapitalbankapi.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,5 +38,25 @@ public class OrderService {
     public ApiResponse getLastOrders() {
         List<?> lastOrders = orderRepository.getLastOrders();
         return new ApiResponse("Success",true,lastOrders);
+    }
+
+    public ApiResponse getOrdersWithoutDetails() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String format = dateFormat.format(date);
+        List<?> ordersWithoutDetails = orderRepository.getOrdersWithoutDetails(date);
+        return new ApiResponse("Success",true,ordersWithoutDetails);
+    }
+
+    public ApiResponse getNumberOfProductsInYear() {
+        List<?> numberOfProductsInYear = orderRepository.getNumberOfProductsInYear();
+        return new ApiResponse("Success",true,numberOfProductsInYear);
+    }
+
+    public ApiResponse getOrderDetails(Integer id) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+        if (!optionalOrder.isPresent()) return new ApiResponse("Not Found",false);
+        List<?> detailsByOrderId = orderRepository.getDetailsByOrderId(id);
+        return new ApiResponse("Success",true,detailsByOrderId);
     }
 }

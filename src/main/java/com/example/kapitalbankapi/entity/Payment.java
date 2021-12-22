@@ -19,7 +19,7 @@ import java.util.Date;
 @Entity
 public class Payment extends AbsEntity {
     @Column(nullable = false)
-    private Date date;
+    private Date time;
 
     @Column(nullable = false)
     private Double amount;

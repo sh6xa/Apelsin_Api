@@ -16,4 +16,9 @@ public class InvoiceService {
         return new ApiResponse("Success",true,allByIssued);
 
     }
+
+    public ApiResponse getWrongDateInvoices() {
+        List<?> wrongDateInvoices = invoiceRepository.getWrongDateInvoices();
+        return new ApiResponse("Success",true,wrongDateInvoices);
+    }
 }
