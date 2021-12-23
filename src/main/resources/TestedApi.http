@@ -1,0 +1,64 @@
+GET http://localhost:8077/api/invoice/expired_invoices
+###
+
+GET http://localhost:8077/api/invoice/wrong_date_invoices
+###
+
+GET http://localhost:8077/api/order/orders_without_details
+###
+
+GET http://localhost:8077/api/customer/customers_without_orders
+###
+
+GET http://localhost:8077/api/order/customers_last_orders
+###
+
+GET http://localhost:8077/api/invoice/overpaid_invoices
+###
+
+GET http://localhost:8077/api/product/high_demand_products
+###
+
+GET http://localhost:8077/api/product/bulk_products
+###
+
+GET http://localhost:8077/api/order/number_of_products_in_year
+###
+
+GET http://localhost:8077/api/order/orders_without_details
+###
+
+GET http://localhost:8077/api/category/list
+###
+
+GET http://localhost:8077/api/category/product_id/1
+###
+
+GET http://localhost:8077/api/product/list
+###
+
+GET http://localhost:8077/api/product/product_id/1
+###
+
+POST http://localhost:8077/api/order/Post/order
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "productId": 2,
+  "quantity": 5
+}
+###
+
+GET http://localhost:8077/api/order/details/1
+###
+
+POST http://localhost:8077/api/payment/Post/payment
+Content-Type: application/json
+
+{
+  "invoiceId": 1
+}
+###
+
+GET http://localhost:8077/api/payment/details/1

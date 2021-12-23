@@ -6,24 +6,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Invoice extends AbsEntity {
-    @OneToOne
-    private Order order;
-    
-    private double amount;
-    private Date issued;
-    private Date due;
-
-
+public class Attachment extends AbsEntity {
+    private String originalName;
+    private long size;
+    private String type;
 
 }

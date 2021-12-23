@@ -17,7 +17,7 @@ public class CustomerController {
     CustomerService customerService;
 
     //Get all customers name who not order 2020
-    @GetMapping("/NotOrdered2020")
+    @GetMapping("/customers_without_orders")
     public HttpEntity<?>getAllByNotOrder(){
         ApiResponse apiResponse = customerService.getAllByNotOrder();
         return ResponseEntity.ok(apiResponse);

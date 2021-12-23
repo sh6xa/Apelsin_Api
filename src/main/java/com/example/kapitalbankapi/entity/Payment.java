@@ -18,10 +18,10 @@ import java.util.Date;
 @Data
 @Entity
 public class Payment extends AbsEntity {
-    @Column(nullable = false)
+
     private Date time;
 
-    @Column(nullable = false)
+
     private Double amount;
 
     @ManyToOne

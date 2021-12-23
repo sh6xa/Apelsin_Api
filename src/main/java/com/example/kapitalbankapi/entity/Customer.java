@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @Entity
 public class Customer extends AbsEntity {
 
-    private String name;
+    private String fullName;
     private String country;
     private String address;
     private String phone;

@@ -1,8 +1,8 @@
 package com.example.kapitalbankapi.controller;
 
 import com.example.kapitalbankapi.payload.ApiResponse;
+import com.example.kapitalbankapi.payload.OrderDto;
 import com.example.kapitalbankapi.service.OrderService;
-import com.sun.tools.javac.util.DefinedBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +53,12 @@ public class OrderController {
     public HttpEntity<?> getOrderDetails(@PathVariable Integer id){
         ApiResponse apiResponse = orderService.getOrderDetails(id);
         return ResponseEntity.ok(apiResponse);
+    }
+
+    @PostMapping("/Post/order")
+    public HttpEntity <?> postOrder(@RequestBody OrderDto orderDto){
+        ApiResponse apiResponse = orderService.postOrder(orderDto);
+        return ResponseEntity.status(apiResponse.isSuccess()?201:409).body(apiResponse);
     }
 
 
